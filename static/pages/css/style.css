@@ -235,6 +235,7 @@ body{
     grid-template-columns: repeat(3, 1fr);
     gap: 90px;
     padding: 60px 218px;
+    
 }
 /* .card__content-list{
     display: grid;
