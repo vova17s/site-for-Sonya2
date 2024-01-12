@@ -230,7 +230,14 @@ body{
     font-size: 20px;
 } 
 
-.card__content-list{
+.card_content{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 90px;
+    padding: 60px 218px;
+    
+}
+/* .card__content-list{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 90px;
@@ -257,7 +264,7 @@ body{
     grid-template-columns: repeat(3, 1fr);
     gap: 90px;
     padding: 60px 218px;
-}
+} */
 
 .ticket-form{
     display: flex;
