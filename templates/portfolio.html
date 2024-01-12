@@ -39,26 +39,9 @@
         <main class="main">
             <section class="card">
                 <div class="card__content">
-                    <ul class="card__content-list">
-                        <li class="card__content-item">
-                            <img src="{% static 'images/card-1.jpg' %}" alt="" class="card__content-img">
-                            <a href="#" class="card-content-link button">
-                                Смотреть полностью
-                            </a>
-                        </li>
-                        <li class="card__content-item">
-                            <img src="{% static 'images/card-2.jpg' %}" alt="" class="card__content-ing">
-                            <a href="#" class="card-content-link button">
-                                Смотреть полностью
-                            </a>
-                        </li>
-                        <li class="card__content-item">
-                            <img src="{% static 'images/card-3.jpg' %}" alt="" class="card__content-ing">
-                            <a href="#" class="card-content-link button">
-                                Смотреть полностью
-                            </a>
-                        </li>
-                    </ul>
+                    {% for  photo in photo_list %}
+                        <img src="{{ photo.url }}" alt="" class="card__content-img">
+                    {% endfor %}
                 </div>
             </section>
         </main>
