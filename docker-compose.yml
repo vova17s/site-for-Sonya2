@@ -1,0 +1,54 @@
+version: '3.9'
+services:
+
+  traefik:
+    image: traefik:latest
+    container_name: traefik
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=web"
+      - "traefik.http.routers.traefik.service=traefik"
+      - "traefik.http.services.traefik.loadbalancer.server.port=8080"
+      - "traefik.http.routers.traefik.rule=Host(`traefik.localhost`)"
+    command: --api.insecure=true --providers.docker
+    networks:
+      - web
+
+  backend:
+    build: ./src/server
+    container_name: backend
+    restart: always
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=web"
+      - "traefik.http.routers.backend.service=backend"
+      - "traefik.http.routers.backend.rule=Host(`62.109.15.31`)"
+      - "traefik.http.services.backend.loadbalancer.server.port=4000"
+    command: >
+      sh -c " python manage.py makemigrations &&
+              python manage.py migrate &&
+              python manage.py collectstatic --noinput &&
+              celery -A server worker --loglevel=INFO --detach &&
+              gunicorn server.wsgi:application --bind 0.0.0.0:4000"
+    volumes:
+      - static_volume:/app/static
+      - media_volume:/app/media
+    networks:
+      - web
+    ports:
+      - "4000:4000"
+
+volumes:
+  media_volume:
+  static_volume:
+  postgres_data:
+
+networks:
+  web:
+    external: true

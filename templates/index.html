@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="container">
+                <div class="header__inner">
+                    <a href="{% url 'homepage' %}" class="logo">
+                        <img class="logo" alt="" src="{% static 'images/logo.svg' %}">
+                    </a>
+                    <nav class="menu">
+                        <ul class="menu__list">
+                            <li class="menu__list-item">
+                                <a href="{% url 'homepage' %}" class="menu__list-link">Главная</a>
+                            </li>
+                            <li class="menu__list-item">
+                                <a href="{% url 'portfolio' %}" class="menu__list-link">Портфолио</a>
+                            </li>
+                            <li class="menu__list-item">
+                                <a href="{% url 'about' %}" class="menu__list-link">О себе</a>
+                            </li>
+                            <li class="menu__list-item">
+                                <a href="{% url 'ticket' %}" class="menu__list-link">Обратная связь</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <main class="main">
+            <section class="top">
+                <div class="container">
+                    <h3 class="title">
+                        Уникальные люди заслуживают уникальной фотосессии
+                    </h3>
+                    <a href="{% url 'portfolio' %}" class="top__link button">
+                        Посмотреть работы
+                    </a>
+                </div>
+            </section>
+            <div class="slider">
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide" style="background-image: url({% static 'images/slide-1.jpg' %});"></div>
+                        <div class="swiper-slide" style="background-image: url({% static 'images/slide-2.jpg' %});"></div>
+                        <div class="swiper-slide" style="background-image: url({% static 'images/slide-3.jpg' %});"></div>
+                        <div class="swiper-slide" style="background-image: url({% static 'images/slide-4.jpg' %});"></div>
+                        <div class="swiper-slide" style="background-image: url({% static 'images/slide-5.jpg' %});"></div>
+                        <div class="swiper-slide" style="background-image: url({% static 'images/slide-6.jpg' %});"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+            <section class="why-lease">
+                <ul class="why-lease__list">
+                    <li class="why-lease__item">
+                        <h3 class="why-lease__item-title">
+                            Отвественное отношение
+                        </h3>
+                        <img src="{% static 'images/why-lease-1.svg' %}" alt="" class="why-lease__item-img">
+                        <p class="why-lease__item-text">
+                            тщательная подготовка всей фотосессии, учитывая пожелания клиента. Организация студии,
+                            подбор локаций
+                        </p>
+                    </li>
+                    <li class="why-lease__item">
+                        <h3 class="why-lease__item-title">
+                            готовность к эксперементам </h3>
+                        <img src="{% static 'images/why-lease-2.svg' %}" alt="" class="why-lease__item-img">
+                        <p class="why-lease__item-text">
+                            Эксперементы в отношении локаций, костюмов приветствуются
+                        </p>
+                    </li>
+                    <li class="why-lease__item">
+                        <h3 class="why-lease__item-title">
+                            клиентоориентированность </h3>
+                        <img src="{% static 'images/why-lease-3.svg' %}" alt="" class="why-lease__item-img">
+                        <p class="why-lease__item-text">
+                            приятная атмосфера на фотосессии. баланс между желаниями заказчика и качеством фотосессии
+                        </p>
+                    </li>
+                </ul>
+            </section>
+        </main>
+        <footer class="footer">
+            <div class="container">
+                <ul class="app">
+                    <li class="app__item">
+                        <a href="https://t.me/sssooonnniiikk" class="app__item-link">
+                            <img class="app__item-img" src="{% static 'images/telegram.svg' %}" alt="">
+                        </a>
+                    </li>
+                    <li class="app__item">
+                        <a href="https://vk.com/sooniiik" class="app__item-link">
+                            <img class="app__item-img" src="{% static 'images/vk.svg' %}" alt="">
+                        </a>
+                    </li>
+                    <li class="app__item">
+                        <a href="https://www.instagram.com/soniiik04?igsh=ZGNjOWZkYTE3MQ%3D%3D&utm_source=qr" class="app__item-link">
+                            <img class="app__item-img" src="{% static 'images/instagram.svg' %}" alt="">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>

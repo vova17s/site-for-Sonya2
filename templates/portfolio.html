@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="container">
+                <div class="header__inner">
+                    <a href="{% url 'homepage' %}" class="logo">
+                        <img class="logo" alt="" src="{% static 'images/logo.svg' %}">
+                    </a>
+                    <nav class="menu">
+                        <ul class="menu__list">
+                            <li class="menu__list-item">
+                                <a href="{% url 'homepage' %}" class="menu__list-link">Главная</a>
+                            </li>
+                            <li class="menu__list-item">
+                                <a href="{% url 'portfolio' %}" class="menu__list-link">Портфолио</a>
+                            </li>
+                            <li class="menu__list-item">
+                                <a href="{% url 'about' %}" class="menu__list-link">О себе</a>
+                            </li>
+                            <li class="menu__list-item">
+                                <a href="{% url 'ticket' %}" class="menu__list-link">Обратная связь</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <main class="main">
+            <section class="card">
+                <div class="card__content">
+                    <ul class="card__content-list">
+                        <li class="card__content-item">
+                            <img src="{% static 'images/card-1.jpg' %}" alt="" class="card__content-img">
+                            <a href="#" class="card-content-link button">
+                                Смотреть полностью
+                            </a>
+                        </li>
+                        <li class="card__content-item">
+                            <img src="{% static 'images/card-2.jpg' %}" alt="" class="card__content-ing">
+                            <a href="#" class="card-content-link button">
+                                Смотреть полностью
+                            </a>
+                        </li>
+                        <li class="card__content-item">
+                            <img src="{% static 'images/card-3.jpg' %}" alt="" class="card__content-ing">
+                            <a href="#" class="card-content-link button">
+                                Смотреть полностью
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <div class="container">
+                <ul class="app">
+                    <li class="app__item">
+                        <a href="https://t.me/sssooonnniiikk" class="app__item-link">
+                            <img class="app__item-img" src="{% static 'images/telegram.svg' %}" alt="">
+                        </a>
+                    </li>
+                    <li class="app__item">
+                        <a href="https://vk.com/sooniiik" class="app__item-link">
+                            <img class="app__item-img" src="{% static 'images/vk.svg' %}" alt="">
+                        </a>
+                    </li>
+                    <li class="app__item">
+                        <a href="https://www.instagram.com/soniiik04?igsh=ZGNjOWZkYTE3MQ%3D%3D&utm_source=qr" class="app__item-link">
+                            <img class="app__item-img" src="{% static 'images/instagram.svg' %}" alt="">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+</body>
+</html>
